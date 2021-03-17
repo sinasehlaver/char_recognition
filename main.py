@@ -17,8 +17,8 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 ret,thresh = cv2.threshold(gray,127,255,cv2.THRESH_BINARY_INV)
 #showimg(thresh)
 
-kernel = np.ones((1,50), np.uint8)
-img_dilation = cv2.dilate(thresh, kernel, iterations=1)
+kernel = np.ones((5,5), np.uint8)
+img_dilation = cv2.dilate(thresh, kernel, iterations=2)
 showimg(img_dilation)
 
 im2,ctrs, hier = cv2.findContours(img_dilation.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
